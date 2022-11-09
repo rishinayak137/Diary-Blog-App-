@@ -4,14 +4,15 @@ import axios from "axios";
 import { Context } from "../../context/Context";
 
 export default function Write() {
+  const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPost = {
+      category,
       username: user.username,
       title,
       desc,
@@ -29,14 +30,24 @@ export default function Write() {
     try {
       const res = await axios.post("/posts", newPost);
       window.location.replace("/post/" + res.data._id);
+      await axios.post('/categories',{name: category});
     } catch (err) {}
   };
   return (
+
     <div className="write">
       {file && (
         <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
       )}
       <form className="writeForm" onSubmit={handleSubmit}>
+        <input
+            type="text"
+            placeholder="Enter category"
+            className="writeInputCat"
+            autoFocus={true}
+            onChange={e=>setCategory(e.target.value)}
+          />
+         
         <div className="writeFormGroup">
           <label htmlFor="fileInput">
             <i className="writeIcon fas fa-plus"></i>
@@ -63,6 +74,7 @@ export default function Write() {
             onChange={e=>setDesc(e.target.value)}
           ></textarea>
         </div>
+        
         <button className="writeSubmit" type="submit">
           Publish
         </button>

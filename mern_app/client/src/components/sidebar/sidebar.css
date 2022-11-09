@@ -29,11 +29,11 @@
   text-align: center;
 }
 
-.sidebarItem > img {
+.sidebarItem>img {
   margin-top: 15px;
 }
 
-.sidebarItem > p {
+.sidebarItem>p {
   padding: 30px;
 }
 
@@ -57,12 +57,15 @@
   justify-content: center;
 }
 
-.sidebarIcon{
-    font-size: 16px;
-    margin-left: 10px;
-    cursor: pointer;
+.sidebarIcon {
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
 }
-.link:hover{
-  text-decoration: none;
-  color: rgb(62, 189, 57);
+
+.imageGif {
+  width: 350px;
+  height: 300px;
+  padding-top: 0px;
+  margin-top: 0;
 }

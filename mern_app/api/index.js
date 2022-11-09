@@ -18,7 +18,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify:false
+    useFindAndModify: false,
   })
   .then(console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));

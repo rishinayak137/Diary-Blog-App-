@@ -20,7 +20,7 @@ export default function Register() {
       });
       res.data && window.location.replace("/login");
     } catch (err) {
-      setError(true);
+      setError(false);
     }
   };
   return (

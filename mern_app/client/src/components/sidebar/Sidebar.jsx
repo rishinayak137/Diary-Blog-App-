@@ -5,7 +5,6 @@ import "./sidebar.css";
 
 export default function Sidebar() {
   const [cats, setCats] = useState([]);
-
   useEffect(() => {
     const getCats = async () => {
       const res = await axios.get("/categories");
@@ -16,22 +15,29 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarItem">
-        <span className="sidebarTitle">ABOUT ME</span>
+        <span className="sidebarTitle">
+          <b>WELCOME</b>
+        </span>
         <img
-          src="https://i.pinimg.com/236x/1e/3f/58/1e3f587572a7a7b20bbf1828595a1786--holiday-party-themes-holiday-gift-guide.jpg"
+          className="imageGif"
+          src="http://www.adventuresofyoo.com/wp-content/uploads/2017/09/astronaut.gif"
           alt=""
         />
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
-          necessitatibus nostrum illum reprehenderit.
+          <i>
+            Kick start your journey by exploring ideas on various topics...
+            <br />
+            Write your thoughts and collaborate by becoming our family
+          </i>
         </p>
       </div>
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
-          {cats.map((c) => (
-            <Link to={`/?cat=${c.name}`} className="link">
-            <li className="sidebarListItem">{c.name}</li>
+          {cats.map((c, index) => (
+            <Link to={`/?cat=${c.name}`} key={index} className="link">
+              <li className="sidebarListItem">{c.name}</li>
+              <br />
             </Link>
           ))}
         </ul>

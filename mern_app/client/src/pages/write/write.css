@@ -16,8 +16,13 @@
 
 .writeFormGroup {
   margin-left: 150px;
+  margin-right: 150px;
   display: flex;
   align-items: center;
+  border:1px solid teal;
+ 
+  margin-top: 10px;
+  border-radius: 10px;
 }
 
 .writeIcon {
@@ -43,6 +48,9 @@
 .writeInput:focus {
   outline: none;
 }
+.writeInputCat:focus {
+  outline: none;
+}
 
 .writeText {
   font-size: 20px;
@@ -61,3 +69,12 @@
   cursor: pointer;
   font-size: 16px;
 }
+.writeInputCat {
+  font-size: 20px;
+  border: none;
+  padding: 20px;
+  width: 70vw;
+  margin-left: 120px;
+  
+}
+

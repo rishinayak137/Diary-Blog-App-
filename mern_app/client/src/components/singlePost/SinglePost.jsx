@@ -8,12 +8,20 @@ import "./singlePost.css";
 export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
+  const [comment, setComment] = useState("");
   const [post, setPost] = useState({});
   const PF = "http://localhost:5000/images/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+  const handleComment = async () => {
+    try {
+      await axios.put(`/posts/${post._id}`, {
+        comments: [...post.comments, comment],
+      });
+    } catch (err) {}
+  };
 
   useEffect(() => {
     const getPost = async () => {
@@ -41,7 +49,7 @@ export default function SinglePost() {
         title,
         desc,
       });
-      setUpdateMode(false)
+      setUpdateMode(false);
     } catch (err) {}
   };
 
@@ -100,6 +108,30 @@ export default function SinglePost() {
           <button className="singlePostButton" onClick={handleUpdate}>
             Update
           </button>
+        )}
+        <h2 className="displayHead">Comments</h2>
+        {post?.comments?.map((cmnt) => (
+          <h3 className="display">{cmnt}</h3>
+        ))}
+
+        {!updateMode && (
+          <>
+            <input
+              placeholder="Enter comments..."
+              type="text"
+              className="CommentField"
+              onChange={(e) => setComment(e.target.value)}
+            ></input>
+            <button
+              className="btn"
+              onClick={() => {
+                handleComment();
+                window.location.reload(true);
+              }}
+            >
+              Comment
+            </button>
+          </>
         )}
       </div>
     </div>

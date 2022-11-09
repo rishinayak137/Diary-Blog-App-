@@ -67,19 +67,19 @@ export default function Settings() {
           </div>
           <label>Username</label>
           <input
-            type="text"
+            type="text" className="username"
             placeholder={user.username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <label>Email</label>
           <input
-            type="email"
+            type="email" className="username"
             placeholder={user.email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <label>Password</label>
           <input
-            type="password"
+            type="password" className="username"
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className="settingsSubmit" type="submit">

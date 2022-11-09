@@ -33,10 +33,6 @@
   margin-top: 15px;
   cursor: pointer;
 }
-.postTitle:hover{
-  text-decoration: none;
-  color: rgb(62, 189, 57);
-}
 
 .postDate {
   font-family: "Lora", serif;
